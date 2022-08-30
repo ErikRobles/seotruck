@@ -20,7 +20,7 @@ export const useSignUp = () => {
 
   const { dispatch } = useAuthContext();
 
-  const API_URL = 'http://localhost:5000/api/users';
+  const API_URL = '/api/users';
 
   const signup = async (formData) => {
     setLoading(true);

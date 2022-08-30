@@ -11,7 +11,7 @@ export const useSubmitCV = () => {
 
   // const { dispatch } = useCVContext();
 
-  const API_URL = 'http://localhost:5000/api/cvs';
+  const API_URL = '/api/cvs';
 
   const submitcv = async (formData) => {
     setLoading(true);

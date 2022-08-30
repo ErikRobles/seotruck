@@ -18,7 +18,7 @@ export const useLogin = () => {
 
   const { dispatch } = useAuthContext();
 
-  const API_URL = 'http://localhost:5000/api/users/login';
+  const API_URL = '/api/users/login';
 
   const login = async (formData) => {
     setLoading(true);
