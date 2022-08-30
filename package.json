@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Trucker Job Board Posting App",
   "main": "server.js",
+  "engines": {
+    "node": "16.15.1"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
