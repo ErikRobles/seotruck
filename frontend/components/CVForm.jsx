@@ -258,10 +258,9 @@ function CVForm() {
                             name='usEligible'
                             className='border border-gray-300 text-gray-500 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
                             onChange={onChange}
+                            value='yes'
                           >
-                            <option value='yes' selected>
-                              Yes
-                            </option>
+                            <option value='yes'>Yes</option>
                             <option value='no'>No</option>
                           </select>
                         </div>
@@ -309,9 +308,7 @@ function CVForm() {
                             id='state'
                             className='border border-gray-300 text-gray-400 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
                           >
-                            <option selected disabled>
-                              Choose a State
-                            </option>
+                            <option disabled>Choose a State</option>
                             <option value='AL'>Alabama</option>
                             <option value='AK'>Alaska</option>
                             <option value='AZ'>Arizona</option>
@@ -390,7 +387,7 @@ function CVForm() {
                             Date of Birth
                           </label>
                           <input
-                            datepicker
+                            datepicker='true'
                             type='date'
                             name='dob'
                             className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5'

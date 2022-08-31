@@ -32,9 +32,9 @@ export const useSubmitCV = () => {
     form.append('description', formData.description);
 
     const response = await axios.post(API_URL, form);
-    if (!response.data) {
-      setError(response.message);
-      toast.error(response.message);
+    if (response.data.message) {
+      setError(response.data.message);
+      toast.error(response.data.message);
       setLoading(false);
       return;
     }

@@ -10,7 +10,7 @@ function CvPageView() {
 
   const cvShouldRun = useRef(true);
 
-  const API_URL = 'http://localhost:5000/api/cvs';
+  const API_URL = '/api/cvs';
 
   useEffect(() => {
     if (cvShouldRun.current) {
@@ -57,8 +57,8 @@ function CvPageView() {
   return (
     <>
       {cvs ? (
-        <div className='container p-3 absolute -z-10'>
-          <div className='flex flex-row justify-center items-center'>
+        <div className=' p-3 absolute -z-10 w-full'>
+          <div className='flex flex-row justify-center items-center w-full mx-auto'>
             <h1 className='text-2xl text-gray-500 font-bold mb-4'>
               Resume List View
             </h1>
@@ -118,7 +118,7 @@ function CvPageView() {
                       {cv.fileUrl ? (
                         <a
                           className='text-gray-400 underline hover:text-white hover:font-bold transition-all duration-300'
-                          href={cv.fileUrl}
+                          href={`${cv.fileUrl}`}
                           target='_blank'
                           rel='noreferrer'
                         >

@@ -3,8 +3,11 @@ const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
+const { File, Web3Storage } = require('web3.storage');
 
 const CV = require('../models/cvModel');
+
+const w3storage = new Web3Storage({ token: process.env.WEB3_STORAGE_TOKEN });
 
 function checkFileType(file, cb) {
   // Allowed ext
@@ -63,8 +66,16 @@ const createCV = async (req, res) => {
     dob,
     description,
   } = req.body;
-  const fileUrl = `http://localhost:3000/uploads/${req.file.filename}`;
+  const fileUrl = req.file.filename;
   console.log(fileUrl);
+  const bytes = fs.readFileSync(`${process.env.UPLOAD_PATH}/${fileUrl}`);
+  const newFile = new File([bytes], fileUrl);
+  const cid = await w3storage.put([newFile]);
+  const fileName = path.basename(fileUrl);
+  const filePath = path.join(process.env.UPLOAD_PATH, fileName);
+  if (fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+  }
   const cv = CV.create({
     firstName,
     lastName,
@@ -78,7 +89,7 @@ const createCV = async (req, res) => {
     usEligible,
     dob,
     description,
-    fileUrl,
+    fileUrl: `https://${cid}.ipfs.dweb.link/${fileName}`,
   });
 
   res.status(201).json(cv);
@@ -106,11 +117,6 @@ const deleteCV = asyncHandler(async (req, res) => {
     throw new Error('CV not found');
   }
 
-  const fileName = path.basename(cv.fileUrl);
-  const filePath = path.join(process.env.UPLOAD_PATH, fileName);
-  if (fs.existsSync(filePath)) {
-    fs.unlinkSync(filePath);
-  }
   await cv.remove();
 
   res.status(200).json({ success: true });

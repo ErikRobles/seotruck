@@ -14,7 +14,7 @@ function Promo({ promoheading, promomessage }) {
         <div className='absolute  max-w-[300px] max-h-[400px] right-[-20px] bottom-[-75px] lg:right-[-40px] xl:right-[-75px] bg-gray-200 p-6 rounded-lg  mb-4'>
           <div className='flex flex-col justify-evenly space-y-4'>
             <h3 className='text-2xl'>Card Header</h3>
-            <h2 clasName='text-xl'>Card SubHeading</h2>
+            <h2 className='text-xl'>Card SubHeading</h2>
             <p className='text-base'>
               Card Text Lorem ipsum dolor sit amet, consectetur adipisicing
               elit. Deleniti quam quia incidunt pariatur? Atque saepe numquam

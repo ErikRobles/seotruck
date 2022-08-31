@@ -1,6 +1,7 @@
 {
   "name": "seotruck",
   "version": "1.0.0",
+  "proxy": "http://localhost:5000",
   "description": "Trucker Job Board Posting App",
   "main": "server.js",
   "engines": {
@@ -33,6 +34,7 @@
     "next-http-proxy-middleware": "^1.2.4",
     "nodemon": "^2.0.19",
     "toastify": "^2.0.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "web3.storage": "^4.4.0"
   }
 }
