@@ -7,7 +7,7 @@ const customId = 'custom-toast-id';
 
 function Admin() {
   const { user } = useAuthContext();
-
+  // router
   const router = useRouter();
   useEffect(() => {
     if (!user?.isAdmin) {
