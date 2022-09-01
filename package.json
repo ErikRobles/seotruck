@@ -5,14 +5,13 @@
   "description": "Trucker Job Board Posting App",
   "main": "server.js",
   "engines": {
-    "node": "16.15.1"
+    "node": "16.x"
   },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm run dev --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Erik Robles",
